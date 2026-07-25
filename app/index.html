@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: file:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Desktop Pet</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="toolbar">
+        <button id="pauseButton" type="button">暂停</button>
+        <button id="exitButton" type="button" class="danger">退出</button>
+      </div>
+      <div id="petStage">
+        <canvas id="petCanvas" width="256" height="256"></canvas>
+        <div id="petName">James</div>
+      </div>
+      <div id="hint">左键挥手，拖动移动，右键更多操作</div>
+    </div>
+    <script src="./renderer.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,10 @@
+.DS_Store
+app/assets/.DS_Store
+outputs/.DS_Store
+node_modules
+work
+release/dist/*
+!release/dist/README.txt
+build/icon.png
+build/icon.ico
+build/icon-256.png

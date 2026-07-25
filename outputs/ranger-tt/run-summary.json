@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "spriteVersionNumber": 2,
+  "run_dir": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run",
+  "spritesheet": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/final/spritesheet-extended.webp",
+  "validation": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/final/validation-extended.json",
+  "chroma_despill": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/qa/chroma-despill-extended.json",
+  "contact_sheet": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/qa/contact-sheet-extended.png",
+  "direction_sheet": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/qa/look-directions.png",
+  "direction_semantics": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/qa/direction-semantics.json",
+  "blind_direction_validation": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/qa/direction-blind-validation.json",
+  "blind_review_resolution": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/qa/blind-review-resolution.json",
+  "continuity": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/qa/look-continuity.json",
+  "review": "/Users/tt/Documents/Codex/2026-07-25/hatch-pet-users-tt-codex-skills/work/ranger-miao/run/qa/review.json",
+  "package": "/Users/tt/.codex/pets/ranger-tt"
+}

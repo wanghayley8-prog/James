@@ -1,0 +1,20 @@
+James Windows packaging has been configured locally.
+
+Local machine status:
+- App source created
+- Windows installer config created
+- Portable build config created
+- GitHub Actions workflow created
+- Bundled pet assets copied to app/assets
+- Local code syntax verified
+
+Local packaging note:
+- Electron binary download on this Mac failed because the TLS connection was interrupted during postinstall
+- A stable Windows `.exe` should be generated through the included GitHub Actions workflow on `windows-latest`
+
+Expected Windows outputs after build:
+- release/dist/James Desktop Pet-1.0.0-x64-nsis.exe
+- release/dist/James-Desktop-Pet-1.0.0-Portable-x64.exe
+
+If you build on GitHub Actions, download the artifact named:
+- james-desktop-pet-windows

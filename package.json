@@ -1,0 +1,72 @@
+{
+  "name": "james-desktop-pet",
+  "version": "1.0.0",
+  "description": "Windows-ready desktop pet wrapper for James.",
+  "packageManager": "pnpm@11.9.0",
+  "main": "app/main.js",
+  "author": "Codex",
+  "license": "MIT",
+  "scripts": {
+    "prepare:assets": "node scripts/sync-pet-assets.mjs && node scripts/generate-icons.mjs",
+    "dev": "pnpm run prepare:assets && electron .",
+    "check": "node --check app/main.js && node --check app/preload.js && node --check app/renderer.js && node --check scripts/sync-pet-assets.mjs && node --check scripts/generate-icons.mjs",
+    "pack": "pnpm run prepare:assets && electron-builder --dir",
+    "build:win": "pnpm run prepare:assets && electron-builder --win nsis portable --x64",
+    "build:portable": "pnpm run prepare:assets && electron-builder --win portable --x64"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "png-to-ico": "^2.1.8",
+    "sharp": "^0.33.5"
+  },
+  "build": {
+    "appId": "com.codex.james.desktop-pet",
+    "productName": "James Desktop Pet",
+    "directories": {
+      "output": "release/dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "app/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "app/assets",
+        "to": "assets"
+      }
+    ],
+    "asar": true,
+    "win": {
+      "artifactName": "${productName}-${version}-${arch}-${target}.${ext}",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "James Desktop Pet",
+      "deleteAppDataOnUninstall": true
+    },
+    "portable": {
+      "artifactName": "James-Desktop-Pet-${version}-Portable-${arch}.${ext}"
+    }
+  }
+}

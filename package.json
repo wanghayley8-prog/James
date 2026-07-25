@@ -39,34 +39,32 @@
     ],
     "asar": true,
     "win": {
-      "artifactName": "${productName}-${version}-${arch}-${target}.${ext}",
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "portable",
-          "arch": [
-            "x64"
-          ]
-        }
-      ],
-      "icon": "build/icon.ico"
+  "target": [
+    {
+      "target": "nsis",
+      "arch": [
+        "x64"
+      ]
     },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "perMachine": false,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "James Desktop Pet",
-      "deleteAppDataOnUninstall": true
-    },
-    "portable": {
-      "artifactName": "James-Desktop-Pet-${version}-Portable-${arch}.${ext}"
+    {
+      "target": "portable",
+      "arch": [
+        "x64"
+      ]
     }
-  }
+  ],
+  "icon": "build/icon.ico"
+},
+"nsis": {
+  "artifactName": "James-Desktop-Pet-${version}-Installer-${arch}.${ext}",
+  "oneClick": false,
+  "allowToChangeInstallationDirectory": true,
+  "perMachine": false,
+  "createDesktopShortcut": true,
+  "createStartMenuShortcut": true,
+  "shortcutName": "James Desktop Pet",
+  "deleteAppDataOnUninstall": true
+},
+"portable": {
+  "artifactName": "James-Desktop-Pet-${version}-Portable-${arch}.${ext}"
 }

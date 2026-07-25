@@ -11,29 +11,51 @@ const runtimeIconPath = path.join(root, "app", "assets", "icon.png");
 async function main() {
   await fs.mkdir(buildDir, { recursive: true });
 
-  const iconPngPath = path.join(buildDir, "icon.png");
-  const iconIcoPath = path.join(buildDir, "icon.ico");
   const previewPngPath = path.join(buildDir, "icon-256.png");
+  const runtimePngPath = path.join(buildDir, "icon.png");
+  const iconIcoPath = path.join(buildDir, "icon.ico");
 
-  const icon = sharp(inputPath)
-    .extract({ left: 6 * 192, top: 0, width: 192, height: 208 })
+  const extracted = sharp(inputPath).extract({
+    left: 6 * 192,
+    top: 0,
+    width: 192,
+    height: 208
+  });
+
+  await extracted
     .resize(256, 256, {
       fit: "contain",
       background: { r: 0, g: 0, b: 0, alpha: 0 }
-    });
+    })
+    .png()
+    .toFile(previewPngPath);
 
-  await icon.png().toFile(previewPngPath);
   await sharp(previewPngPath)
     .resize(512, 512, {
       fit: "contain",
       background: { r: 0, g: 0, b: 0, alpha: 0 }
     })
     .png()
-    .toFile(iconPngPath);
+    .toFile(runtimePngPath);
 
-  await fs.copyFile(iconPngPath, runtimeIconPath);
+  await fs.copyFile(runtimePngPath, runtimeIconPath);
 
-  const icoBuffer = await pngToIco([iconPngPath]);
+  const icoSizes = [16, 24, 32, 48, 64, 128, 256];
+  const icoInputs = [];
+
+  for (const size of icoSizes) {
+    const sizedPngPath = path.join(buildDir, `icon-${size}.png`);
+    await sharp(previewPngPath)
+      .resize(size, size, {
+        fit: "contain",
+        background: { r: 0, g: 0, b: 0, alpha: 0 }
+      })
+      .png()
+      .toFile(sizedPngPath);
+    icoInputs.push(sizedPngPath);
+  }
+
+  const icoBuffer = await pngToIco(icoInputs);
   await fs.writeFile(iconIcoPath, icoBuffer);
 }
 

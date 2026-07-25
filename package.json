@@ -10,9 +10,9 @@
     "prepare:assets": "node scripts/sync-pet-assets.mjs && node scripts/generate-icons.mjs",
     "dev": "pnpm run prepare:assets && electron .",
     "check": "node --check app/main.js && node --check app/preload.js && node --check app/renderer.js && node --check scripts/sync-pet-assets.mjs && node --check scripts/generate-icons.mjs",
-    "pack": "pnpm run prepare:assets && electron-builder --dir",
-    "build:win": "pnpm run prepare:assets && electron-builder --win nsis portable --x64",
-    "build:portable": "pnpm run prepare:assets && electron-builder --win portable --x64"
+    "pack": "pnpm run prepare:assets && electron-builder --publish never --dir",
+    "build:win": "pnpm run prepare:assets && electron-builder --publish never --win nsis portable --x64",
+    "build:portable": "pnpm run prepare:assets && electron-builder --publish never --win portable --x64"
   },
   "devDependencies": {
     "electron": "^33.2.1",
